@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>My Serverless App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes App — AWS Serverless</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Notes</h1>
-    <p>This site will use AWS Amplify, Cognito, Lambda, and DynamoDB.</p>
-    <button id="quoteBtn">Get a quote</button>
-    <p id="quote"></p>
-    <script src="app.js"></script>
+    <div class="container">
+      <header>
+        <h1>Notes App</h1>
+        <p>AWS Amplify · Cognito · DynamoDB · Serverless</p>
+      </header>
+
+      <section class="card" id="auth-section">
+        <h2>Account</h2>
+        <div class="row">
+          <input id="email" type="email" placeholder="Email" />
+          <input id="password" type="password" placeholder="Password" />
+          <input id="code" type="text" placeholder="Verification code" />
+        </div>
+        <div class="actions">
+          <button id="signUpBtn">Sign up</button>
+          <button id="confirmBtn" class="secondary">Confirm code</button>
+          <button id="signInBtn">Sign in</button>
+          <button id="signOutBtn" class="secondary">Sign out</button>
+        </div>
+        <p id="authMessage"></p>
+      </section>
+
+      <section class="card" id="app-section" hidden>
+        <div class="status">Signed in</div>
+
+        <h2>Your notes</h2>
+        <div class="row">
+          <input id="noteInput" type="text" placeholder="Write a note" />
+          <button id="saveNoteBtn">Save note</button>
+        </div>
+        <ul id="notesList"></ul>
+
+      </section>
+    </div>
+
+    <script type="module" src="app.js"></script>
   </body>
 </html>
